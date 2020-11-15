@@ -26,7 +26,7 @@ class PrintTable:
         self.bet = bet
         self.numb = numb
 
-    # print " +________+ "
+    # print " +--------+ "
     @staticmethod
     def h_line():
         print("+", end="")
@@ -40,7 +40,7 @@ class PrintTable:
         print()
         PrintTable.h_line()
 
-        print("|", PrintTable.txt.center(PrintTable.len_column - 1) + "|")  # +self.len_column - 2 + "|")
+        print("|", PrintTable.txt.center(PrintTable.len_column - 1) + "|")
         PrintTable.h_line()
         list_str = ' '.join([str(elem) for elem in numb])
         city_column = 25 - len(city)

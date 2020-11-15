@@ -25,13 +25,5 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     result = (start(args.n))
-    print(result)
-
-
-"""    number_tickets = int(input("How many ticket: "))
-    if number_tickets == 0:
-        quit()
-    start(number)
-    print()"""
 
 
