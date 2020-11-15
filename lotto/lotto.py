@@ -77,7 +77,7 @@ class Lotto:
                 PrintOutput.horizontal_line()
 
                 if self.int_bet <= choice_numbers <= max_numbers:
-                    self.numbers = (sorted(sample(list(range(1, 90 + 1)), choice_numbers)))
+                    self.numbers = (sample(list(range(1, 90 + 1)), choice_numbers))
                     break
                 elif choice_numbers > max_numbers:
                     print(" " * 7, " * Enter a number between {} and {} * ".format(self.int_bet, max_numbers))
