@@ -36,13 +36,13 @@ class PrintTable:
 
     @staticmethod
     def ticket_table(city, bet, numb):
-        print()
+       # print()
         print()
         PrintTable.h_line()
 
         print("|", PrintTable.txt.center(PrintTable.len_column - 1) + "|")
         PrintTable.h_line()
-        list_str = ' '.join([str(elem) for elem in numb])
+        list_str = " ".join([str(elem) for elem in numb])
         city_column = 25 - len(city)
         bet_column = 26 - len(bet)
         numb_column = 29 - len(list_str)
