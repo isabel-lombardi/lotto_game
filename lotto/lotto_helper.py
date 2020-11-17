@@ -18,7 +18,7 @@ class PrintOutput:
 
 
 class PrintTable:
-    len_column = 32
+    width_column = 32
     txt = "Lotto Ticket"
 
     def __init__(self, city, bet, numb):
@@ -30,33 +30,29 @@ class PrintTable:
     @staticmethod
     def h_line():
         print("+", end="")
-        for x in range(PrintTable.len_column):
+        for x in range(PrintTable.width_column):
             print("-", end="")
         print("+")
 
     @staticmethod
     def ticket_table(city, bet, numb):
-       # print()
         print()
         PrintTable.h_line()
 
-        print("|", PrintTable.txt.center(PrintTable.len_column - 1) + "|")
+        print(("|{:^32}|".format("Lotto Ticket")))
+
         PrintTable.h_line()
         list_str = " ".join([str(elem) for elem in numb])
         city_column = 25 - len(city)
         bet_column = 26 - len(bet)
         numb_column = 29 - len(list_str)
 
-        white_line = "|" + " " * PrintTable.len_column + "|"
+        white_line = "|{}|".format(" " * PrintTable.width_column)
 
-        print(white_line)
-        print("|" + " CITY: " + city + " " * city_column + "|")
-        print(white_line)
-        print("|" + " BET: " + bet + " " * bet_column + "|")
-        print(white_line)
-        print("|", " -" * 14, "  |")
-        print(white_line)
-        print("|", list_str, " " * numb_column, "|")
+        print(white_line, "\n| CITY: {}{}|".format(city, " " * city_column))
+        print(white_line, "\n| BET: {}{}|".format(bet, " " * bet_column))
+        print(white_line, "\n| {} |".format(" - " * 10))
+        print(white_line, "\n| {} {} |".format(list_str, " " * numb_column))
         print(white_line)
         PrintTable.h_line()
         print()
