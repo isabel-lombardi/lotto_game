@@ -4,7 +4,8 @@ class City:
 
     def __init__(self, city):
         if City.is_city_valid(city):
-            self.city = city
+            self.city = City.city_index(city)
+           # self.city = city
         else:
             pass
 

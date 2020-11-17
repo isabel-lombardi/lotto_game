@@ -30,8 +30,11 @@ class Lotto:
                 PrintOutput.horizontal_line()
 
                 if City.is_city_valid(city_choice):
-                    self.city = City.city_index(city_choice)
+                    c = City(city_choice)
+                    self.city = c.city_index(city_choice)
                     break
+                    #self.city = City.city_index(city_choice)
+                    #break
 
                 else:
                     print(" " * 6, "* Please enter a number between 1 to 10 * ")
@@ -56,7 +59,10 @@ class Lotto:
 
                 if BetType.is_bet_type_valid(bet_choice):
                     self.int_bet = bet_choice
-                    self.bet = BetType.bet_index(bet_choice)
+                    b = BetType(bet_choice)
+                    self.bet = b.bet_index(bet_choice)
+                  #  self.int_bet = bet_choice
+                  #  self.bet = BetType.bet_index(bet_choice)
                     break
                 else:
                     print(" " * 6, "* Please enter a number between 1 to 5 * ")
