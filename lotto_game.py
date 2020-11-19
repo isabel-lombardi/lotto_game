@@ -1,5 +1,6 @@
 from lotto.lotto import Lotto
 from argparse import ArgumentParser
+from lotto.check_extraction import CheckExtraction
 
 
 def start(n):
@@ -16,12 +17,17 @@ def start(n):
         tickets_list[n].choose_city()
         tickets_list[n].choose_bet_type()
         tickets_list[n].choose_numbers()
-    # tickets_list[n].print_ticket()
+
+    extraction = CheckExtraction()
+    extraction.print_extraction()
 
     for n in range(len(tickets_list)):
         print()
         print(" Ticket number: {}".format(n + 1))
         tickets_list[n].print_ticket()
+
+        tickets_list[n].check_win()  # control win
+        print()
 
 
 if __name__ == '__main__':
@@ -33,16 +39,21 @@ if __name__ == '__main__':
 
     if tickets_numb is None:
         print()
-        print(" You can generate 1 to 5 tickets. \n 0 to exit")
+        print("{:^57}\n{:^57}".format(" > You can generate 1 to 5 tickets <",  "0 to exit"))
         print()
 
         while True:
-            tickets_numb = int(input(" How many tickets do you want to generate?: "))
-            if 0 < tickets_numb <= 5:
+            try:
+                tickets_numb = int(input(" - How many tickets do you want to generate?: "))
+                if 0 < tickets_numb <= 5:
 
-                break
-            elif tickets_numb == 0:
-                quit()
-            else:
-                print("{:^57}".format("*Enter a number between 1 and 5*"))
+                    break
+                elif tickets_numb == 0:
+                    quit()
+                else:
+                    print("{:^57}".format("*Enter a number between 1 and 5*"))
+
+            except ValueError:
+                print("{:^57}".format("*Enter a numeric value*"))
+
     start(tickets_numb)
