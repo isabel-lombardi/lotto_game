@@ -1,5 +1,5 @@
-from lotto.lotto import Lotto
 from argparse import ArgumentParser
+from lotto.lotto import Lotto
 from lotto.check_extraction import CheckExtraction
 
 
@@ -17,6 +17,7 @@ def start(n):
         tickets_list[n].choose_city()
         tickets_list[n].choose_bet_type()
         tickets_list[n].choose_numbers()
+        tickets_list[n].choose_played()
 
     extraction = CheckExtraction()
     extraction.print_extraction()
@@ -25,8 +26,7 @@ def start(n):
         print()
         print(" Ticket number: {}".format(n + 1))
         tickets_list[n].print_ticket()
-
-        tickets_list[n].check_win()  # control win
+        tickets_list[n].check_prize()
         print()
 
 
@@ -39,7 +39,7 @@ if __name__ == '__main__':
 
     if tickets_numb is None:
         print()
-        print("{:^57}\n{:^57}".format(" > You can generate 1 to 5 tickets <",  "0 to exit"))
+        print("{:^57}\n{:^57}".format(" > You can generate 1 to 5 tickets <", "0 to exit"))
         print()
 
         while True:
@@ -57,3 +57,4 @@ if __name__ == '__main__':
                 print("{:^57}".format("*Enter a numeric value*"))
 
     start(tickets_numb)
+

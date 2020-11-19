@@ -8,6 +8,7 @@ class PrintOutput:
     def horizontal_line(txt=""):
         if txt:
             print(txt.center(PrintOutput.max_len - 2))
+
         print("+", end="")
         for x in range(PrintOutput.max_len):
             print("-", end="")
@@ -40,7 +41,7 @@ class PrintTable:
         print("+")
 
     @staticmethod
-    def ticket_table(city, bet, numb):
+    def ticket_table(city, bet, numb, played):
         PrintTable.h_line()
 
         print(("|{:^32}|".format("Lotto Ticket")))
@@ -50,11 +51,13 @@ class PrintTable:
         city_column = 25 - len(city)
         bet_column = 26 - len(bet)
         numb_column = 29 - len(list_str)
+        play_colum = 21 - len(str(played))
 
         white_line = "|{}|".format(" " * PrintTable.width_column)
 
         print(white_line, "\n| CITY: {}{}|".format(city, " " * city_column))
         print(white_line, "\n| BET: {}{}|".format(bet, " " * bet_column))
+        print(white_line, "\n| AMOUNT: {}€{} |".format(played, " " * play_colum))
         print(white_line, "\n| {} |".format(" - " * 10))
         print(white_line, "\n| {} {} |".format(list_str, " " * numb_column))
         print(white_line)

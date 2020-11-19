@@ -4,10 +4,11 @@ This project is based on the Italian lotto game.
 It will consist of 3 learning paths.  
 For more info on the rules visit: https://www.sisal.it/lotto/come-si-gioca  
 
-## Learning Path 2
+## Learning Path 3
 
-In this branch there is the second level, after generating a lottery ticket   
-based on the name of the wheel, the type of bet and the numbers to be generated entered by the user, the extraction of numbers for each wheel will be generated and it will be verified if one of the tickets is a winner
+In this branch there is the third level, after generating a lottery ticket based on the name of the wheel,  
+the type of bet and the numbers to be generated entered by the user, generated the extraction of the numbers    
+for each wheel and verified whether one of the tickets is the winner, the prize will be calculated
 
 ### Structure
 
@@ -51,8 +52,24 @@ It manages the logic of the program. Inside we find:
     - choose_numbers  
     Asks the user how many numbers to randomly generate for the single ticket (from 1 to 10)
     
+    - choose_played
+    Asks the user the value of the played for the ticket
+    
     - print_ticket  
     Print the ticket on the screen
     
+    - check_win
+    Which is responsible for verifying whether the ticket created is winning or not
+    
+    - check_prize
+    Which is responsible for verifying the total winnings
+    
+    
 - lotto_helper.py  
 It takes care of the printing functions.
+
+- prize
+which is responsible for verifying the total premium based on the data entered by the user. Inside we find:
+
+  - check_combination, which takes care of reporting the number of playable combinations
+  - check_amount, which takes care of reporting the gross win value
