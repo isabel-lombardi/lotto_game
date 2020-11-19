@@ -54,5 +54,8 @@ It manages the logic of the program. Inside we find:
     - print_ticket  
     Print the ticket on the screen
     
+    - check_win
+    Which is responsible for verifying whether the ticket created is winning or not
+    
 - lotto_helper.py  
 It takes care of the printing functions.
