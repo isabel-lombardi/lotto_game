@@ -68,7 +68,7 @@ It manages the logic of the program. Inside we find:
 - lotto_helper.py  
 It takes care of the printing functions.
 
-- prize
+- prize.py   
 which is responsible for verifying the total premium based on the data entered by the user. Inside we find:
 
   - check_combination, which takes care of reporting the number of playable combinations
