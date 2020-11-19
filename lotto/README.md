@@ -50,4 +50,5 @@ It manages the logic of the program. Inside we find:
     
 - lotto_helper.py  
 It takes care of the printing functions.
-    
+
+-
