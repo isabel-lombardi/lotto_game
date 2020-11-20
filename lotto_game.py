@@ -14,6 +14,8 @@ def start(n):
         tickets_list.append(ticket)
 
     for n in range(len(tickets_list)):
+        print()
+        print("* Ticket: {}".format(n + 1))
         tickets_list[n].choose_city()
         tickets_list[n].choose_bet_type()
         tickets_list[n].choose_numbers()
@@ -23,7 +25,7 @@ def start(n):
 
     for n in range(len(tickets_list)):
         print()
-        print(" Ticket number: {}".format(n + 1))
+        print("* Ticket number: {}".format(n + 1))
         tickets_list[n].print_ticket()
 
         tickets_list[n].check_win()  # control win

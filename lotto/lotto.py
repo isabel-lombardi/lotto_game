@@ -66,7 +66,7 @@ class Lotto:
         max_numbers = 10
 
         print()
-        choice_mex = "> You can play from 1 to 10 numbers <"
+        choice_mex = "> You can play from {} to {} numbers <".format(self.int_bet, max_numbers)
         PrintOutput.horizontal_line(choice_mex)
 
         while True:
