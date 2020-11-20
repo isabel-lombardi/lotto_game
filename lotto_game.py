@@ -13,14 +13,16 @@ def start(n):
         tickets_list.append(ticket)
 
     for n in range(len(tickets_list)):
+        print()
+        print("* Ticket: {}".format(n + 1))
+        print()
         tickets_list[n].choose_city()
         tickets_list[n].choose_bet_type()
         tickets_list[n].choose_numbers()
-    # tickets_list[n].print_ticket()
 
     for n in range(len(tickets_list)):
         print()
-        print(" Ticket number: {}".format(n + 1))
+        print("* Ticket number: {}".format(n + 1))
         tickets_list[n].print_ticket()
 
 
@@ -33,11 +35,12 @@ if __name__ == '__main__':
 
     if tickets_numb is None:
         print()
-        print(" You can generate 1 to 5 tickets. \n 0 to exit")
+        print("{:^57}\n{:^57}".format(" > You can generate 1 to 5 tickets <", "0 to exit"))
+
         print()
 
         while True:
-            tickets_numb = int(input(" How many tickets do you want to generate?: "))
+            tickets_numb = int(input(" - How many tickets do you want to generate?: "))
             if 0 < tickets_numb <= 5:
 
                 break

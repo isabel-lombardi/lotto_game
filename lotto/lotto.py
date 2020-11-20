@@ -15,8 +15,8 @@ class Lotto:
         self.numbers = numbers
 
     def choose_city(self):
-        choice_mex = " Choose the 'ruota' based on the name of the city: "
-        PrintOutput.header(choice_mex)
+        choice_mex = "  > Choose the 'ruota' based on the name of the city < "
+        PrintOutput.horizontal_line(choice_mex)
         print()
 
         for x, name in enumerate(City.cities, 1):
@@ -26,26 +26,23 @@ class Lotto:
 
         while True:
             try:
-                city_choice = int(input(" Enter the number corresponding to the city: "))
-                PrintOutput.horizontal_line()
+                city_choice = int(input(" - Enter the number corresponding to the city: "))
 
                 if City.is_city_valid(city_choice):
                     c = City(city_choice)
                     self.city = c.city_index(city_choice)
                     break
-                    #self.city = City.city_index(city_choice)
-                    #break
 
                 else:
-                    print(" " * 6, "* Please enter a number between 1 to 10 * ")
+                    print("{:^55}".format("*Enter a number between 1 to 10*"))
 
             except ValueError:
                 print("* Enter the number corresponding to the city, not the name * ")
 
     def choose_bet_type(self):
-        choice_mex = " Enter the type of bet to apply for the ticket: "
+        choice_mex = " > Enter the type of bet to apply for the ticket < "
         print()
-        PrintOutput.header(choice_mex)
+        PrintOutput.horizontal_line(choice_mex)
 
         for x, name in enumerate(BetType.bet_types, 1):
             print(" -", x, ":", name)
@@ -54,18 +51,15 @@ class Lotto:
 
         while True:
             try:
-                bet_choice = int(input(" Enter the number corresponding to the type of bet: "))
-                PrintOutput.horizontal_line()
+                bet_choice = int(input(" - Enter the number corresponding to the type of bet: "))
 
                 if BetType.is_bet_type_valid(bet_choice):
                     self.int_bet = bet_choice
                     b = BetType(bet_choice)
                     self.bet = b.bet_index(bet_choice)
-                  #  self.int_bet = bet_choice
-                  #  self.bet = BetType.bet_index(bet_choice)
                     break
                 else:
-                    print(" " * 6, "* Please enter a number between 1 to 5 * ")
+                    print("{:^55}".format("*Enter a number between 1 to 5*"))
 
             except ValueError:
                 print("* Enter the number corresponding to the type of bet, not the name * ")
@@ -74,13 +68,12 @@ class Lotto:
         max_numbers = 10
 
         print()
-        choice_mex = "You can play from 1 to 10 numbers"
-        PrintOutput.header(choice_mex)
+        choice_mex = " > You can play from {} to {} numbers < ".format(self.int_bet, max_numbers)
+        PrintOutput.horizontal_line(choice_mex)
 
         while True:
             try:
-                choice_numbers = int(input(" How many numbers do you want to play?: "))
-                PrintOutput.horizontal_line()
+                choice_numbers = int(input(" - How many numbers do you want to play?: "))
 
                 if self.int_bet <= choice_numbers <= max_numbers:
                     self.numbers = (sample(list(range(1, 90 + 1)), choice_numbers))
@@ -91,7 +84,7 @@ class Lotto:
                     print(" * You cannot play {} numbers, because you chose {} *".format(choice_numbers, self.bet))
 
             except ValueError:
-                print(" " * 14, "* Enter a numeric value *")
+                print("{:^55}".format("*Enter a numeric value*"))
 
     def print_ticket(self):
         PrintTable.ticket_table(self.city, self.bet, self.numbers)

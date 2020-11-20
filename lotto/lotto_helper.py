@@ -2,7 +2,10 @@ class PrintOutput:
     max_len = 55
 
     @staticmethod
-    def horizontal_line():
+    def horizontal_line(txt=""):
+        if txt:
+            print(txt.center(PrintOutput.max_len - 2))
+
         print("+", end="")
         for x in range(PrintOutput.max_len):
             print("-", end="")
