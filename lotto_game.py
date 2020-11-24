@@ -1,6 +1,6 @@
 from argparse import ArgumentParser
 from lotto.lotto import Lotto
-from lotto.check_extraction import CheckExtraction
+from lotto.check_extraction import Extraction
 
 
 def start(n):
@@ -14,17 +14,20 @@ def start(n):
         tickets_list.append(ticket)
 
     for n in range(len(tickets_list)):
+        print()
+        print("* Ticket {}".format(n))
+        print()
         tickets_list[n].choose_city()
         tickets_list[n].choose_bet_type()
         tickets_list[n].choose_numbers()
         tickets_list[n].choose_played()
 
-    extraction = CheckExtraction()
+    extraction = Extraction()
     extraction.print_extraction()
 
     for n in range(len(tickets_list)):
         print()
-        print(" Ticket number: {}".format(n + 1))
+        print("* Ticket number: {}".format(n + 1))
         tickets_list[n].print_ticket()
         tickets_list[n].check_prize()
         print()

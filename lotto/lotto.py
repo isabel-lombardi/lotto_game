@@ -3,8 +3,9 @@ from random import sample
 from lotto.city import City
 from lotto.bet_type import BetType
 from lotto.lotto_helper import PrintOutput, PrintTable
-from lotto.check_extraction import CheckExtraction
+from lotto.check_extraction import Extraction
 from lotto.prize import Prize
+
 
 class Lotto:
 
@@ -66,7 +67,7 @@ class Lotto:
         max_numbers = 10
 
         print()
-        choice_mex = " > You can play from 1 to 10 numbers < "
+        choice_mex = " > You can play from {} to {} numbers < ".format(self.int_bet, max_numbers)
         PrintOutput.horizontal_line(choice_mex)
 
         while True:
@@ -104,7 +105,7 @@ class Lotto:
         PrintTable.ticket_table(self.city, self.bet, self.numbers, self.played)
 
     def check_win(self):
-        check_win = CheckExtraction()
+        check_win = Extraction()
         self.winning_numbers = check_win.is_winner(self.city, self.numbers)
         if len(self.winning_numbers) >= self.int_bet:
             print("{:^33}\n{:^33}".format("CONGRATULATIONS", "*YOU WIN*"))
