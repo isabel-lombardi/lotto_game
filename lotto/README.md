@@ -26,7 +26,7 @@ Contains the BetType class, where general information on the type of bet is cont
     - bet_index  
      which takes care of transforming the numerical value entered by the user into the corresponding name
 
-- check_extraction.py
+- extraction.py
 Contains the CheckExtraction class, where general information on the extraction. Inside we find:
     - the dictionary check_extraction, where 5 random numbers are generated for each city
     - print_extraction, print the extraction on the screen
