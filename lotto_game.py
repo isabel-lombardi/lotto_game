@@ -15,7 +15,7 @@ def start(n):
 
     for n in range(len(tickets_list)):
         print()
-        print("* Ticket {}".format(n))
+        print("* Ticket {}".format(n + 1))
         print()
         tickets_list[n].choose_city()
         tickets_list[n].choose_bet_type()

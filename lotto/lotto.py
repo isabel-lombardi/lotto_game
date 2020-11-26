@@ -125,7 +125,12 @@ class Lotto:
 
             tax = 0.08  # 8%
             print()
+
+            if self.city == City.cities[-1]:
+                amount /= 10
+
             win = self.played * combination * amount
+
             if win <= 500:
                 print("TOTAL WIN: {:.2f}€".format(win))
             else:

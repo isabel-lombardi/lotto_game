@@ -16,9 +16,18 @@ class Extraction:
         PrintExtraction.extraction_table(self.cities_extraction)
 
     def is_winner(self, city, numbers):
+        winning_numbers = []
         for key, value in self.cities_extraction.items():
             if city == key:
                 winning_numbers = [n for n in numbers for ex_n in value if n == ex_n]
                 return winning_numbers
+
+            elif city == City.cities[-1]:
+                for n in numbers:
+                    for ex_n in value:
+                        if ex_n == n:
+                            winning_numbers.append(n)
+                            return winning_numbers
+
             else:
                 pass
