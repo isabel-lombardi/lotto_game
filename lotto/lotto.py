@@ -3,7 +3,7 @@ from random import sample
 from lotto.city import City
 from lotto.bet_type import BetType
 from lotto.lotto_helper import PrintOutput, PrintTable
-from lotto.check_extraction import CheckExtraction
+from lotto.extraction import Extraction
 
 
 class Lotto:
@@ -88,7 +88,7 @@ class Lotto:
         PrintTable.ticket_table(self.city, self.bet, self.numbers)
 
     def check_win(self):
-        check_win = CheckExtraction()
+        check_win = Extraction()
         self.winning_numbers = check_win.is_winner(self.city, self.numbers)
         if len(self.winning_numbers) >= self.int_bet:
             print("{:^33}\n{:^33}".format("CONGRATULATIONS", "*YOU WIN*"))
@@ -98,4 +98,3 @@ class Lotto:
         else:
             print("{:^33}\n{:^33}".format("The ticket is not winning, try again", ">But play responsibly<"))
             pass
-

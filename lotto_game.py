@@ -1,6 +1,6 @@
 from lotto.lotto import Lotto
 from argparse import ArgumentParser
-from lotto.check_extraction import CheckExtraction
+from lotto.extraction import Extraction
 
 
 def start(n):
@@ -20,7 +20,7 @@ def start(n):
         tickets_list[n].choose_bet_type()
         tickets_list[n].choose_numbers()
 
-    extraction = CheckExtraction()
+    extraction = Extraction()
     extraction.print_extraction()
 
     for n in range(len(tickets_list)):
