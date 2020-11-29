@@ -90,7 +90,7 @@ class Lotto:
         PrintOutput.horizontal_line(choice_mex)
         while True:
             try:
-                played_choice = int(input(" - How much do you want to play on the ticket?: "))
+                played_choice = float(input(" - How much do you want to play on the ticket?: "))
 
                 if 1 <= played_choice <= 200:
                     self.played = played_choice
@@ -117,6 +117,7 @@ class Lotto:
             pass
 
     def check_prize(self):
+        max_win = 6000000
         if Lotto.check_win(self) is True:
 
             p = Prize()
@@ -136,4 +137,7 @@ class Lotto:
             else:
                 print("Gross win: {}".format(win))
                 net_total = win * tax
-                print("TOTAL WIN: {:.2f}€".format(win - net_total))
+                total_win = win - net_total
+                if total_win > max_win:
+                    total_win = max_win
+                    print("TOTAL WIN: {:.2f}€".format(total_win))
