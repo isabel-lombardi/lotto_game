@@ -38,10 +38,7 @@ class Lotto:
             if self.city == City.cities[-1]:
                 winning = {}
                 for city in extraction.cities_extraction.keys():
-                    win_numb = []
-                    for n in self.numbers:
-                        if n in extraction.cities_extraction[city]:
-                            win_numb.append(n)
+                    win_numb = [n for n in self.numbers if n in extraction.cities_extraction[city]]
                     winning[city] = win_numb
 
                 for city in winning.keys():
