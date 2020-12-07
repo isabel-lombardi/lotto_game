@@ -4,7 +4,7 @@ class BetType:
     def __init__(self, bet_type):
 
         if BetType.is_bet_type_valid(bet_type):
-            self.bet_type = BetType.bet_index(bet_type)
+            self.bet_type = BetType.index_from_name(bet_type)
             self.numbers_for_bet = [bet_type]
         else:
             pass
