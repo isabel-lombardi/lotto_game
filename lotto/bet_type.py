@@ -18,8 +18,15 @@ class BetType:
                 pass
 
     @staticmethod
-    def bet_index(bet_type):
+    def name_from_index(bet_type):
         for number, name in enumerate(BetType.bet_types, 1):
             if bet_type == number:
                 bet_type = name
+                return bet_type
+
+    @staticmethod
+    def index_from_name(bet_type):
+        for number, name in enumerate(BetType.bet_types, 1):
+            if bet_type == name:
+                bet_type = number
                 return bet_type
