@@ -1,35 +1,37 @@
 from argparse import ArgumentParser
 from lotto.lotto import Lotto
-from lotto.check_extraction import Extraction
+from lotto.extraction import Extraction
+from lotto.player_input import PlayerInput
+from lotto.lotto_helper import PrintOutput
 
 
 def start(n):
-    tickets_list = []
+    tickets = []
 
     if n == 0:
         quit()
 
-    for ticket in range(n):
-        ticket = Lotto()
-        tickets_list.append(ticket)
+    for sing_ticket in range(n):
+        sing_ticket = PlayerInput()
+        print()
 
-    for n in range(len(tickets_list)):
-        print()
-        print("* Ticket {}".format(n + 1))
-        print()
-        tickets_list[n].choose_city()
-        tickets_list[n].choose_bet_type()
-        tickets_list[n].choose_numbers()
-        tickets_list[n].choose_played()
+        print("* Ticket {}".format(n))
+
+        city = sing_ticket.choose_city()
+        bet_type = sing_ticket.choose_bet_type()
+        numbers = sing_ticket.choose_numbers()
+        played = sing_ticket.choose_played()
+
+        tickets.append(Lotto(city, bet_type, numbers, played))
 
     extraction = Extraction()
     extraction.print_extraction()
 
-    for n in range(len(tickets_list)):
+    for n in range(len(tickets)):
         print()
         print("* Ticket number: {}".format(n + 1))
-        tickets_list[n].print_ticket()
-        tickets_list[n].check_prize()
+        tickets[n].print_ticket()
+        tickets[n].check_prize()
         print()
 
 
@@ -41,9 +43,8 @@ if __name__ == '__main__':
     tickets_numb = args.n
 
     if tickets_numb is None:
-        print()
-        print("{:^57}\n{:^57}".format(" > You can generate 1 to 5 tickets <", "0 to exit"))
-        print()
+        PrintOutput.print_numbers_ticket(" > You can generate 1 to 5 tickets <")
+        PrintOutput.print_numbers_ticket("0 to exit")
 
         while True:
             try:
@@ -54,10 +55,11 @@ if __name__ == '__main__':
                 elif tickets_numb == 0:
                     quit()
                 else:
-                    print("{:^57}".format("*Enter a number between 1 and 5*"))
+                    PrintOutput.print_numbers_ticket("*Enter a number between 1 and 5*")
 
             except ValueError:
-                print("{:^57}".format("*Enter a numeric value*"))
+                PrintOutput.print_numbers_ticket("*Enter a numeric value*")
 
     start(tickets_numb)
+
 
