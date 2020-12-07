@@ -28,7 +28,6 @@ class Lotto:
 
     def check_win(self):
         extraction = Extraction()
-        win_numb = []
 
         for key, value in extraction.cities_extraction.items():
             if self.city == key:
@@ -37,14 +36,17 @@ class Lotto:
 
             # if city = "Tutte"
             if self.city == City.cities[-1]:
-                if self.int_bet > 1:
-                    winning_numbers = [n for n in self.numbers for ex_n in value if n == ex_n]
-                    self.winning_numbers = winning_numbers
-                else:
+                winning = {}
+                for city in extraction.cities_extraction.keys():
+                    win_numb = []
                     for n in self.numbers:
-                        if n in value:
+                        if n in extraction.cities_extraction[city]:
                             win_numb.append(n)
-                            self.winning_numbers = win_numb
+                    winning[city] = win_numb
+
+                for city in winning.keys():
+                    if len(winning[city]) >= self.int_bet:
+                        self.winning_numbers = winning[city]
 
             else:
                 pass
